@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Schema;
 
 namespace ConsoleUI
 {
@@ -13,6 +14,52 @@ namespace ConsoleUI
             /*
              * Todo follow all comments!! 
              */
+            var vehicles = new List<Vehicle>();
+            var car1 = new Car()
+            {
+                HasTrunk = true,
+                Year = "2021",
+                Make = "Chevrolet",
+                Model = "Tahoe",
+            };
+            var moto1 = new Motorcycle() 
+            { 
+                HasSideCart = true,
+                Year = "2017",
+                Make = "Suzuki",
+                Model = "GSX",
+            
+            };
+            Vehicle veh1 = new Car()
+            {
+                Year = "2021",
+                Make = "GMC",
+                Model = "Yulon XL",
+
+            };   
+            Vehicle veh2 = new Motorcycle() 
+            {
+                Make = "Kawasaki", 
+                Year = "2015",
+                Model = "Ninja",
+
+            };
+            vehicles.Add(car1);
+            vehicles.Add(moto1);
+            vehicles.Add(veh1);
+            vehicles.Add(veh2);
+
+            foreach (var vehicle in vehicles)
+            {
+                Console.WriteLine($" Year: {vehicle.Year} Make: {vehicle.Make} Model: {vehicle.Model}");
+                Console.WriteLine();
+                vehicle.DriveAbstract();
+                vehicle.DriveVirtual();
+                Console.WriteLine();
+                 
+
+            }
+
 
             #region Vehicles
 
@@ -47,7 +94,7 @@ namespace ConsoleUI
             // Call each of the drive methods for one car and one motorcycle
 
             #endregion            
-            Console.ReadLine();
+            //Console.ReadLine();
         }
     }
 }
